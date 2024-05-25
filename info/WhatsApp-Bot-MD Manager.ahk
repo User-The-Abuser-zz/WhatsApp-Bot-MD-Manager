@@ -64,7 +64,8 @@ CreateGUI:
     Gui, Add, Text,  x440 y267 w30 h30, 12
     Gui, Add, Button, x250 y260 w180 h30 gOpenUpdateCMD, Update Packages
 
-    Gui, Add, Button, x40 y300 w390 h30 gExitButton, Exit
+    Gui, Add, Button, x40 y300 w180 h30 gOpenUpdateManagerCMD, Update Manager
+    Gui, Add, Button, x250 y300 w180 h30 gExitButton, Exit
 
     Gui, Show,, WhatsApp-Bot-MD Manager 1.0.0
 Return
@@ -165,8 +166,9 @@ OpenUpdateCMD:
     Run, %A_ScriptDir%\setup\buttons\update.cmd
 Return
 
-OpenNodeModulesCMD:
-    Run, %A_ScriptDir%\setup\buttons\node_modules.cmd
+OpenUpdateManagerCMD:
+    Run, %A_ScriptDir%\setup\buttons\update_manager.cmd
+    ExitApp
 Return
 
 ExitButton:
