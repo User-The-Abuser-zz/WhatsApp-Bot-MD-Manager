@@ -1,6 +1,26 @@
 @echo off
 setlocal
 
+:check_choco
+where choco >nul 2>nul
+if %errorlevel% neq 0 (
+    start .\setup\chocolatey-2.2.2.0.msi
+    timeout /t 1 /nobreak >nul
+    goto check_choco
+)
+
+:check_git
+where git >nul 2>nul
+if %errorlevel% neq 0 (
+    if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
+        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y'"
+    ) else (
+        runas /user:Administrator "cmd /c choco install git -y"
+    )
+    timeout /t 1 /nobreak >nul
+    goto check_git
+)
+
 set "versionFile=.\version.txt"
 
 set "version="
