@@ -46,7 +46,7 @@ del "%tempFile%" >nul 2>&1
 echo Installed Version: %version%
 echo Latest Version: %latestversion%
 echo.
-echo Please use "Force Stop PM2" before updating WhatsApp-Bot-MD Manager! Do you want to continue? (Y/N)
+echo Please restart your PC before updating WhatsApp-Bot-MD Manager! Do you want to continue? (Y/N)
 
 choice /c yn /n >nul
 
