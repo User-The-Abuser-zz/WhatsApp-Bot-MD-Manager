@@ -4,7 +4,7 @@ setlocal
 :check_choco
 where choco >nul 2>nul
 if %errorlevel% neq 0 (
-    start .\setup\chocolatey-2.2.2.0.msi
+    start "" /wait msiexec /i .\setup\chocolatey-2.2.2.0.msi /quiet /norestart
     timeout /t 1 /nobreak >nul
     goto check_choco
 )
@@ -13,7 +13,7 @@ if %errorlevel% neq 0 (
 where git >nul 2>nul
 if %errorlevel% neq 0 (
     if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
-        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y'"
+        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y' -Wait"
     ) else (
         runas /user:Administrator "cmd /c choco install git -y"
     )
