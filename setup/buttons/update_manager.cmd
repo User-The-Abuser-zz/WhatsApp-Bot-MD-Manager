@@ -9,6 +9,8 @@ if %errorlevel% neq 0 (
     goto check_choco
 )
 
+:check_choco_done
+
 :check_git
 where git >nul 2>nul
 if %errorlevel% neq 0 (
@@ -17,9 +19,10 @@ if %errorlevel% neq 0 (
     ) else (
         runas /user:Administrator "cmd /c choco install git -y"
     )
-    timeout /t 1 /nobreak >nul
-    goto check_git
+    goto :check_git_done
 )
+
+:check_git_done
 
 set "versionFile=.\version.txt"
 
