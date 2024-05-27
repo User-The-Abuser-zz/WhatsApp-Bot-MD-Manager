@@ -1,5 +1,15 @@
 #SingleInstance Force
 
+if not A_IsAdmin
+{
+    MsgBox, 4, Admin Rights Required, This programm needs to run with administrator privileges. Restart with admin rights?
+    IfMsgBox, Yes
+    {
+        Run *RunAs "%A_ScriptFullPath%"
+        ExitApp
+    }
+}
+
 Gui, Margin, 0, 20, 0, 0
 
 DesktopShortcut := A_Desktop "\Whatsapp-Bot-MD Manager.lnk"
