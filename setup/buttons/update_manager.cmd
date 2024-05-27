@@ -4,9 +4,8 @@ setlocal
 :check_choco
 where choco >nul 2>nul
 if %errorlevel% neq 0 (
-    start "" /wait msiexec /i .\setup\chocolatey-2.2.2.0.msi /quiet /norestart
-    timeout /t 1 /nobreak >nul
-    goto check_choco
+    start ""  /wait /i .\setup\chocolatey-2.2.2.0.msi /quiet /norestart
+    goto check_choco_done
 )
 
 :check_choco_done
