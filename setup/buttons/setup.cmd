@@ -26,14 +26,15 @@ echo Chocolatey installation complete!
 
 echo Installing Node.js...
 
+if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
+    powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install nodejs-lts -y'"
+) else (
+    runas /user:Administrator "cmd /c choco install nodejs-lts -y"
+)
+
 :check_node
 where node >nul 2>nul
 if %errorlevel% neq 0 (
-    if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
-        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install nodejs-lts -y'"
-    ) else (
-        runas /user:Administrator "cmd /c choco install nodejs-lts -y"
-    )
     timeout /t 1 /nobreak >nul
     goto check_node
 )
@@ -42,14 +43,15 @@ echo Node.js installation complete!
 
 echo Installing Git...
 
+if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
+    powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y'"
+) else (
+    runas /user:Administrator "cmd /c choco install git -y"
+)
+
 :check_git
 where git >nul 2>nul
 if %errorlevel% neq 0 (
-    if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
-        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y'"
-    ) else (
-        runas /user:Administrator "cmd /c choco install git -y"
-    )
     timeout /t 1 /nobreak >nul
     goto check_git
 )
