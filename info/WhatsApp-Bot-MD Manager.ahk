@@ -2,11 +2,19 @@
 
 if not A_IsAdmin
 {
-    MsgBox, 4, Admin Rights Required, This programm needs to run with administrator privileges. Restart with admin rights?
+    MsgBox, 4, Admin Rights Required, This script needs to run with administrator privileges. Restart with admin rights?
     IfMsgBox, Yes
     {
-        Run *RunAs "%A_ScriptFullPath%"
-        ExitApp
+        Run *RunAs "%A_ScriptFullPath%",, UseErrorLevel
+        if ErrorLevel
+        {
+            MsgBox, 16, Error, Failed to restart with admin rights. Please try running the script as an administrator.
+            ExitApp
+        }
+        else
+        {
+            ExitApp
+        }
     }
 }
 
