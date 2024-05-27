@@ -14,14 +14,13 @@ if %errorlevel% neq 0 (
 where git >nul 2>nul
 if %errorlevel% neq 0 (
     if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
-        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y' -Wait"
+        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y'"
     ) else (
         runas /user:Administrator "cmd /c choco install git -y"
     )
-    goto :check_git_done
+    timeout /t 1 /nobreak >nul
+    goto check_git
 )
-
-:check_git_done
 
 set "versionFile=.\version.txt"
 

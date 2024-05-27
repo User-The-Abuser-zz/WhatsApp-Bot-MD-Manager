@@ -30,14 +30,14 @@ echo Installing Node.js...
 where node >nul 2>nul
 if %errorlevel% neq 0 (
     if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
-        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install nodejs-lts -y' -Wait"
+        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install nodejs-lts -y'"
     ) else (
         runas /user:Administrator "cmd /c choco install nodejs-lts -y"
     )
-    goto check_node_done
+    timeout /t 1 /nobreak >nul
+    goto check_node
 )
 
-:check_node_done
 echo Node.js installation complete!
 
 echo Installing Git...
@@ -46,14 +46,14 @@ echo Installing Git...
 where git >nul 2>nul
 if %errorlevel% neq 0 (
     if exist "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" (
-        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y' -Wait"
+        powershell -Command "Start-Process 'cmd' -Verb RunAs -ArgumentList '/c choco install git -y'"
     ) else (
         runas /user:Administrator "cmd /c choco install git -y"
     )
-    goto :check_git_done
+    timeout /t 1 /nobreak >nul
+    goto check_git
 )
 
-:check_git_done
 echo Git installation complete!
 
 echo Dependencies installed successfully!
