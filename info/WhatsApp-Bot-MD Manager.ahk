@@ -8,7 +8,7 @@ if not A_IsAdmin
         Run *RunAs "%A_ScriptFullPath%",, UseErrorLevel
         if ErrorLevel
         {
-            MsgBox, 16, Error, Failed to restart with admin rights. Please try running the script as an administrator.
+            MsgBox, 16, Error!, Failed to restart with admin rights. Please try running the script as an administrator.
             ExitApp
         }
         else
